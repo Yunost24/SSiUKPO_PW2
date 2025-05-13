@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group = 'ru.yunost'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'io.rest-assured:rest-assured:5.3.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.7.0'
+    testImplementation 'io.rest-assured:json-schema-validator:5.4.0'
+
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        // показываем события по каждому тесту
+        events "PASSED", "FAILED", "SKIPPED"
+        // полный формат исключений
+        exceptionFormat "full"
+        // выводим System.out и System.err
+        showStandardStreams = true
+    }
+}
